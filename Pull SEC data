@@ -1,0 +1,15 @@
+import urllib
+import urllib2
+import pandas as pd
+
+response = urllib2.urlopen('https://www.sec.gov/Archives/edgar/data/1131096/000113109618000106/athn-20180331x10q.htm')
+#print response.info()
+html = response.read()
+print len(html)
+
+response.close()
+
+#pull daily historical data
+Dat = pd.read_csv('https://www.investopedia.com/markets/api/partial/historical/?Symbol=ATHN&Type=Historical+Prices&Timeframe=Daily&StartDate=Nov+28%2C+2017&EndDate=Dec+05%2C+2017'
+            , sep=r'\t', engine='python');
+Dat
